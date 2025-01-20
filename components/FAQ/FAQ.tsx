@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronRight, ArrowRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 const faqs = [
   {
@@ -34,14 +34,13 @@ export default function FAQ() {
     setOpenIndex(openIndex === index ? null : index)
   }
 
-  // Show only first 3 FAQs initially
   const visibleFaqs = showAll ? faqs : faqs.slice(0, 3)
 
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-orange-500 font-medium mb-2">FAQ</p>
+          <p className="text-[#FFA229] font-medium mb-2">FAQ</p>
           <h2 className="text-3xl font-bold text-[#2D2D2D]">Frequent Ask Questions</h2>
         </div>
 
@@ -49,18 +48,18 @@ export default function FAQ() {
           {visibleFaqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
-                className="w-full flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-gray-200 transition-colors"
+                className="w-full flex items-center justify-between p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#FFA229]"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-left font-medium text-gray-900">{faq.question}</span>
+                <span className="text-left font-medium text-gray-900 text-lg">{faq.question}</span>
                 <ChevronRight
-                  className={`w-5 h-5 text-gray-500 transition-transform ${
+                  className={`w-6 h-6 transition-transform duration-200 ${
                     openIndex === index ? 'rotate-90' : ''
                   }`}
                 />
               </button>
               {openIndex === index && (
-                <div className="p-4 bg-white border border-t-0 border-gray-100 rounded-b-lg">
+                <div className="p-6 bg-white shadow-md rounded-b-xl border-l-4 border-[#FFA229] mt-1">
                   <p className="text-gray-600">{faq.answer}</p>
                 </div>
               )}
@@ -74,7 +73,7 @@ export default function FAQ() {
                 className="inline-flex items-center gap-2 bg-[#2B4570] text-white px-6 py-3 rounded-lg hover:bg-[#1e3255] transition-colors"
               >
                 Show more
-                <ArrowRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           )}

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 
@@ -44,18 +45,12 @@ export default function NewsletterCTA() {
         </form>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-lg">
-          <div className="flex items-center gap-2">
-            <Check className="w-5 h-5" />
-            <span>Instant results</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="w-5 h-5" />
-            <span>User-friendly interface</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="w-5 h-5" />
-            <span>Personalized customization</span>
-          </div>
+          {['Instant results', 'User-friendly interface', 'Personalized customization'].map((text) => (
+            <div key={text} className="flex items-center gap-2">
+              <Image src="/tick-icon.svg" alt="Tick" width={20} height={20} className="w-5 h-5" />
+              <span>{text}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -4,34 +4,22 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'luc
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-[#011B5B] text-gray-300">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <Image
-              src="/logo-white.png"
-              alt="RegisterKaro"
-              width={180}
-              height={50}
-              className="mb-6"
-            />
             <p className="mb-6">
               Your trusted partner for business compliance needs. We help entrepreneurs and businesses with registrations,
               tax filings, and legal matters.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="hover:text-white">
-                <Facebook className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="hover:text-white">
-                <Twitter className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="hover:text-white">
-                <Instagram className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="hover:text-white">
-                <Linkedin className="w-5 h-5" />
-              </Link>
+              <Image
+                src="/social-icons.png"
+                alt="Social media icons"
+                width={120}
+                height={20}
+                className="object-contain"
+              />
             </div>
           </div>
 

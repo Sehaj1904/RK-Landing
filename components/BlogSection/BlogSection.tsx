@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+
 const blogPosts = [
   {
     image: '/blog_image.png',

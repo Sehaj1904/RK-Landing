@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const blogPosts = [
   {
-    image: '/blog/post1.jpg',
+    image: '/blog_image.png',
     author: 'Prabhash Mishra',
     date: '1 Jan 2023',
     status: 'Today',
@@ -12,7 +12,7 @@ const blogPosts = [
     tags: ['Tax & Audit', 'Management'],
   },
   {
-    image: '/blog/post2.jpg',
+    image: '/blog_image.png',
     author: 'Mahesh Kumar',
     date: '1 Jan 2023',
     title: 'Scale-Up Company Offer',
@@ -20,7 +20,7 @@ const blogPosts = [
     tags: ['Tax', 'Research', 'Complience'],
   },
   {
-    image: '/blog/post3.jpg',
+    image: '/blog_image.png',
     author: 'Rakhi Verma',
     date: '1 Jan 2023',
     title: 'Growing Business Package',
@@ -39,6 +39,51 @@ export default function BlogSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post, index) => (
+            <article key={index} className="group">
+              <Link href="#" className="block">
+                <div className="relative aspect-[16/9] mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src={post.image || "/placeholder.svg"}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <span>{post.author}</span>
+                    <span>•</span>
+                    <span>{post.date}</span>
+                    {post.status && (
+                      <>
+                        <span>•</span>
+                        <span className="text-orange-500">{post.status}</span>
+                      </>
+                    )}
+                  </div>
+                  <h3 className="text-xl font-bold group-hover:text-orange-500 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600">{post.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 text-sm bg-blue-50 text-blue-600 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {blogPosts.map((post, index) => (
             <article key={index} className="group">
               <Link href="#" className="block">

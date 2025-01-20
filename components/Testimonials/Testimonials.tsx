@@ -63,32 +63,40 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory scrollbar-hide">
+        <div className="relative scrollbar-none">
+          <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory scrollbar-none">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] snap-start"
+                className="flex-shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] snap-start rounded-[20px]"
               >
-                <div className="bg-white text-gray-900 p-8 rounded-lg h-full">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-5 h-5 ${
-                          i < Math.floor(testimonial.rating)
-                            ? 'text-yellow-400 fill-current'
-                            : i === Math.floor(testimonial.rating) && testimonial.rating % 1 !== 0
-                            ? 'text-yellow-400 fill-[50%]'
-                            : 'text-gray-300'
-                        }`}
-                      />
-                    ))}
+                <div className="bg-white text-gray-900 p-8 rounded-[20px] h-full">
+                  <div className="flex justify-between items-start mb-6">
+                    <Image 
+                      src="/double-quotes.svg"
+                      alt="Double quotes"
+                      width={32}
+                      height={32}
+                    />
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-5 h-5 ${
+                            i < Math.floor(testimonial.rating)
+                              ? 'text-yellow-400 fill-current'
+                              : i === Math.floor(testimonial.rating) && testimonial.rating % 1 !== 0
+                              ? 'text-yellow-400 fill-[50%]'
+                              : 'text-gray-300'
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <blockquote className="text-gray-600 mb-6">{testimonial.content}</blockquote>
-                  <div className="flex items-center gap-4">
+                  <blockquote className="text-gray-600">{testimonial.content}</blockquote>
+                  <div className="flex items-center gap-4 mt-6">
                     <Image
-                      src="/placeholder-user.jpg"
+                      src="/user.png"
                       alt={testimonial.author}
                       width={48}
                       height={48}
@@ -105,7 +113,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-8 scrollbar-none">
           {testimonials.map((_, index) => (
             <button
               key={index}

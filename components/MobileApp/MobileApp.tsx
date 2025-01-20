@@ -24,7 +24,7 @@ export default function MobileApp() {
                   className="bg-white rounded-lg p-2 hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/app-store-badge.png"
+                    src="/ios.png"
                     alt="Download on App Store"
                     width={150}
                     height={50}
@@ -36,10 +36,10 @@ export default function MobileApp() {
                   className="bg-white rounded-lg p-2 hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/google-play-badge.png"
+                    src="/android.png"
                     alt="Get it on Google Play"
-                    width={150}
-                    height={50}
+                    width={300}
+                    height={300}
                     className="h-12 w-auto"
                   />
                 </a>
@@ -49,25 +49,14 @@ export default function MobileApp() {
 
           {/* Right Content - Phone Images */}
           <div className="lg:w-1/2 relative">
-            <div className="relative h-[600px] w-full">
-              {/* Back Phone */}
-              <div className="absolute right-0 top-0">
+            <div className="relative h-[500px] w-full overflow-hidden absolute right-0 -bottom-20">
+              <div>
                 <Image
-                  src="/phone-mockup-2.png"
+                  src="/download-app.png"
                   alt="Mobile app screenshot"
-                  width={300}
-                  height={600}
-                  className="object-contain"
-                />
-              </div>
-              {/* Front Phone */}
-              <div className="absolute right-32 top-10">
-                <Image
-                  src="/phone-mockup-1.png"
-                  alt="Mobile app screenshot"
-                  width={300}
-                  height={600}
-                  className="object-contain"
+                  width={2000}
+                  height={2000}
+                  className="object-cover object-bottom"
                 />
               </div>
             </div>
